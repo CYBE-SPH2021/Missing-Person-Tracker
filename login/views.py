@@ -1,26 +1,17 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 
+
 # Create your views here.
 def home(request):
     if request.method == "POST":
-        email = request.POST['email']
+        username = request.POST['username']
         password = request.POST['password']
-        user = auth.authenticate(email=email,password=password)
-        print(email,password,user)
+        user = auth.authenticate(username=username,password=password)
+        print(username,password,user)
         if user is not None:
             auth.login(request, user)
-            print("")
-            print("")
-            print("")
-            print("")
-            print("")
             print("Login successful")
-            print("")
-            print("")
-            print("")
-            print("")
-            print("")
             return redirect("/")
         else:
             print("User invalid")
