@@ -6,5 +6,5 @@ def home(request):
     return render(request,'login/home.html')
 
 def register(request):
-    return render(request,'login/register.html', context)
+    return render(request,'login/register.html')
     
