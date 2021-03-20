@@ -26,26 +26,34 @@
 	<h4 class="card-title mt-3 text-center">Create Account</h4>
 	<p class="text-center">Get started with your free account</p>
 	
-	<form>
+	<form action="" method="POST">
+    <!-- form-group//  USERNAME -->
+    {% csrf_token %}
     <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
              </div>
-            <input  name="" class="form-control" placeholder="Username" type="text">
+            <input  name="username" class="form-control" placeholder="Username" type="text" required="required">
      </div>
+
+      <!-- form-group//  F&LNAME -->
 	<div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
-        <input  name="" class="form-control" placeholder="First name" type="text"><br>
-        <input  name="" class="form-control" placeholder="Last name" type="text">
-    </div> <!-- form-group// -->
+        <input  name="first_name" class="form-control" placeholder="First name" type="text" required="required"><br>
+        <input  name="last_name" class="form-control" placeholder="Last name" type="text" required="required">
+    </div> 
+    
+    <!-- form-group//  EMAIL -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
 		 </div>
-        <input name="" class="form-control" placeholder="Email address" type="email">
-    </div> <!-- form-group// -->
+        <input name="email" class="form-control" placeholder="Email address" type="email" required="required">
+    </div> 
+    
+    <!-- form-group// PHONE -->
     <!-- <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
@@ -55,21 +63,29 @@
 		</select>
     	<input name="" class="form-control" placeholder="Phone number" type="text">
     </div>  -->
+
+    <!-- form-group// PASS1 -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
-        <input class="form-control" placeholder="Create password" type="password">
-    </div> <!-- form-group// -->
+        <input name="password1" class="form-control" placeholder="Create password" type="password" required="required">
+    </div>
+    
+    <!-- form-group// PASS2 -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
-        <input class="form-control" placeholder="Repeat password" type="password">
-    </div> <!-- form-group// -->                                      
+        <input name="password2" class="form-control" placeholder="Repeat password" type="password" required="required">
+    </div> 
+    
+    <!-- form-group// SUBMIT -->                                      
     <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
-    </div> <!-- form-group// -->      
+    </div>
+    
+    <!-- form-group// -->      
     <p class="text-center">Have an account? <a href="">Log In</a> </p>                                                                 
 </form>
 </article>

@@ -17,14 +17,20 @@
   <title>Login</title>
 </head>
 <body>
+    {% if error %}
+        {{ error }}
+        <br>
+        <br>
+        {% endif %}
   <div class="container login-container">
     <div class="row">
+        
         <div class="col-md-6 login-form-1">
             <h3>Civilian Login</h3>
             <form action="" method="post">
                 {% csrf_token %}
                 <div class="form-group">
-                    <input type="email" name="email" class="form-control" placeholder="Your Email *" value="" />
+                    <input type="text" name="username" class="form-control" placeholder="Case id*" value="" />
                 </div>
                 <div class="form-group">
                     <input type="password" name="password" class="form-control" placeholder="Your Password *" value="" />
@@ -42,7 +48,7 @@
             <form action="" method="post">
                 {% csrf_token %}
                 <div class="form-group">
-                    <input type="email" name="email" class="form-control" placeholder="Your Email *" value="" />
+                    <input type="text" name="email" class="form-control" placeholder="Your Email *" value="" />
                 </div>
                 <div class="form-group">
                     <input type="password" name="password" class="form-control" placeholder="Your Password *" value="" />
