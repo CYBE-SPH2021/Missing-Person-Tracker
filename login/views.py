@@ -42,3 +42,34 @@ def register(request):
     else:
         return render(request,'login/register.html')
     
+
+def index(request):
+    return render(request, 'index.html')
+
+
+def plogin(request):
+    if request.method == 'POST':
+        user = auth.authenticate(
+            username=request.POST['username'], password=request.POST['password'])
+        if user is not None:
+            auth.login(request, user)
+            return redirect('register')
+        else:
+            return render(request, 'login/plogin.html', {'error': 'username or password is incorrect.'})
+    else:
+        return render(request, 'login/plogin.html')
+
+def clogin(request):
+    if request.method == 'POST':
+        user = auth.authenticate(
+            username=request.POST['username'], password=request.POST['password'])
+        if user is not None:
+            auth.login(request, user)
+            return redirect('register')
+        else:
+            return render(request, 'login/clogin.html', {'error': 'username or password is incorrect.'})
+    else:
+        return render(request, 'login/clogin.html')
+
+def home2(request):
+    return redirect('http://127.0.0.1:8000/')

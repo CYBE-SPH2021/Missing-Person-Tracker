@@ -1,0 +1,114 @@
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+<title>Missing People Tracker</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" >
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<section id="nav-bar">
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">MISSING PEOPLE TRACKER</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#top">HOME <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="clogin">LOGIN/REGISTER</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="plogin">ADMIN LOGIN</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about" >ABOUT</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#footer" >CONTACTS</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+
+
+
+
+</section>
+
+
+<!----------------------------------banner section---------------------------------->
+<section id="banner">
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <p class="promo-title">TRACK MISSING PEOPLE</p>
+            <p>Whenever you suspect that a person is lost please register on our website and upload the information ,
+                      so that we can bring smile on the face of the family members by reuniting their loved ones</p>
+                    
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="{% static 'img/family.png' %}" class="img-fluid">
+        </div>
+    </div>
+</div>
+<img src="{% static 'img/WAVE.png' %}" class="bottom-img">
+</section>
+
+
+<!-----------------------------------Services Section-------------------------->
+<section id="about">
+<div class = "container text-center">
+<h1 class="title">MORE ABOUT OUR SITE</h1>
+<div class="row text-center">
+<div class="col-md-8 about">
+
+<img src="{% static 'img/track.png' %}" class="about-img">
+<h4>Tracking Missing People</h4>
+<p>If you find or suspect that a person is lost all we want you is to upload an image of that person along with the location and time. This image uploaded by you will be used by in tracking missing people using facial recognition system</p>
+</div>
+<div class="col-md-4 about">
+
+  <img src="{% static 'img/chat.png' %}" class="about-img">
+  <h4>Effective Chat Room</h4>
+  <p>An effective chat system with the help of which you can ask any doubts to the police authority directly</p>
+</div>
+
+</div>
+</div>
+</section>
+<!---------------------------foooter section--------------------------->
+<section id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" footer-box>
+        <p>Contact emai id</p>
+        <p>yashika.kuckian@gmail.com</p>
+        <p>masiheasther@gmail.com</p>
+        <p>Tel no: 1234567890</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!---------------------------Smooth scroll----------------------->
+<script src="{% static 'smooth-scroll.js' %}"></script>
+<script>
+	var scroll = new SmoothScroll('a[href*="#"]');
+</script>
+</body>
+</html>
+
+{%  endblock %} 
