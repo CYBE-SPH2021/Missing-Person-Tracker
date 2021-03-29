@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
+from .forms import SuspectForm
+
 
 # Create your views here.
 def home(request):
@@ -50,10 +52,14 @@ def index(request):
 def plogin(request):
     if request.method == 'POST':
         user = auth.authenticate(
-            username=request.POST['username'], password=request.POST['password'])
+            username=request.POST['username'], password=request.POST['password'],is_staff=True)
+
         if user is not None:
-            auth.login(request, user)
-            return redirect('register')
+            if user.is_staff==True:
+                auth.login(request, user)
+                return redirect('/')
+            else:
+                return render(request, 'login/plogin.html', {'error': 'username or password is incorrect.'})
         else:
             return render(request, 'login/plogin.html', {'error': 'username or password is incorrect.'})
     else:
@@ -65,11 +71,20 @@ def clogin(request):
             username=request.POST['username'], password=request.POST['password'])
         if user is not None:
             auth.login(request, user)
-            return redirect('register')
+            return redirect('suspect')
         else:
             return render(request, 'login/clogin.html', {'error': 'username or password is incorrect.'})
     else:
         return render(request, 'login/clogin.html')
 
-def home2(request):
-    return redirect('http://127.0.0.1:8000/')
+def suspect(request):
+    if request.method == 'POST':
+        form = SuspectForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            # Get the current instance object to display in the template
+            img_obj = form.instance
+            return render(request, 'suspect.html', {'form': form, 'img_obj': img_obj})
+    else:
+        form = SuspectForm()
+    return render(request, 'suspect.html', {'form': form})

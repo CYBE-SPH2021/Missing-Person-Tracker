@@ -7,5 +7,5 @@ urlpatterns = [
     path('plogin/', views.plogin, name='plogin'),
     path('register/', views.register, name='register'),
     path('dashboard/', include('dashboard.urls')),
-    path('plogin/index', views.home2, name='home2')
+    path('suspect/',views.suspect, name='suspect'),
 ]
