@@ -57,7 +57,7 @@ def plogin(request):
         if user is not None:
             if user.is_staff==True:
                 auth.login(request, user)
-                return redirect('/')
+                return redirect('/dashboard')
             else:
                 return render(request, 'login/plogin.html', {'error': 'username or password is incorrect.'})
         else:

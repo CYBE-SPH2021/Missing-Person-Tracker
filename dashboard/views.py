@@ -10,3 +10,6 @@ def case(request):
 
 def maps(request):
     return render(request,'dashboard/map.html')
+
+def dashboard(request):
+    return render(request,'dashboard/dashboard.html')
