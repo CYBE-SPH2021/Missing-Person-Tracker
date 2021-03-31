@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import acase
+from .recognizer import Recognizer
 
 
 # Create your views here.
@@ -13,3 +14,7 @@ def maps(request):
 
 def dashboard(request):
     return render(request,'dashboard/dashboard.html')
+
+def realrec(request):
+    names=Recognizer()
+    return render(request,'dashboard/webcamon.html')
