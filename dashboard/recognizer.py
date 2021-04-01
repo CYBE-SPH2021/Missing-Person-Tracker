@@ -2,9 +2,11 @@ import face_recognition
 import numpy as np
 import cv2
 import os
+from django.shortcuts import render
 
 
 def Recognizer():
+
 	video = cv2.VideoCapture(0)
 
 	known_face_encodings = []
