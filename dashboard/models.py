@@ -3,17 +3,19 @@ from django.db import models
 # Create your models here.
 
 class acase(models.Model):
-    MY_CHOICES = (
-        ('Accepted', 'Accepted'),
-        ('Ongoing', 'Ongoing'),
-        
-    )
 
     case_id = models.AutoField(primary_key="True")
-    name = models.CharField(max_length=100)
+    firstname = models.CharField(max_length=100)
+    lastname = models.CharField(max_length=100)
     image = models.ImageField(upload_to='images/case')
-    info = models.CharField(max_length=200)
-    status = models.CharField(max_length=100, choices=MY_CHOICES)
+    address = models.CharField(max_length=200)
+    landmark = models.CharField(max_length=100)
+    locality = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    district = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    zipcode = models.CharField(max_length=100)
+
     
 
     

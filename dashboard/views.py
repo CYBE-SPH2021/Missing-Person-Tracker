@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import acase
 from .recognizer import Recognizer
+from .forms import AddCaseForm
 
 
 # Create your views here.
@@ -20,5 +21,14 @@ def realrec(request):
     return render(request,'dashboard/webcamon.html')
 
 def addcase(request):
-    return render(request,'dashboard/addcase.html')
+    if request.method == 'POST':
+        form = AddCaseForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            # Get the current instance object to display in the template
+            img_obj = form.instance
+            return render(request, 'dashboard/addcase.html', {'form': form, 'img_obj': img_obj})
+    else:
+        form = AddCaseForm()
+    return render(request, 'dashboard/addcase.html', {'form': form})
 

@@ -142,20 +142,28 @@
               <thead>
                 <tr>
                   <th>Case-Number</th>
-                  <th>Name</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
                   <th>Image</th>
-                  <th>Info</th>
-                  <th>Status</th>
+                  <th>Landmark</th>
+                  <th>Locality</th>
+                  <th>City</th>
+                  <th>State</th>
+                  <th>Zipcode</th>
                 </tr>
               </thead>
               <tbody>
                 {% for aC in ac.all %}
                 <tr>
                   <td><p>{{ aC.case_id }}</p></td>
-                  <td>{{ aC.name }}</td>
+                  <td>{{ aC.firstname }}</td>
+                  <td>{{ aC.lastname }}</td>
                   <td><img height="40" width="40" src="{{ aC.image.url }}" alt="person"></td>
-                  <td>{{ aC.info }}</td>
-                  <td>{{ aC.status }}</td>
+                  <td>{{ aC.landmark }}</td>
+                  <td>{{ aC.locality }}</td>
+                  <td>{{ aC.city }}</td>
+                  <td>{{ aC.state }}</td>
+                  <td>{{ aC.zipcode }}</td>
                 </tr>
                 {% endfor %}
               </tbody>
