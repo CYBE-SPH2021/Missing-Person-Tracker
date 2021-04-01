@@ -18,3 +18,7 @@ def dashboard(request):
 def realrec(request):
     names=Recognizer()
     return render(request,'dashboard/webcamon.html')
+
+def addcase(request):
+    return render(request,'dashboard/addcase.html')
+
