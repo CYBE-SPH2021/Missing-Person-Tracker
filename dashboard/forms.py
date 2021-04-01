@@ -6,4 +6,4 @@ class AddCaseForm(forms.ModelForm):
     """Form for the image model"""
     class Meta:
         model = acase
-        fields = ('firstname','lastname', 'image','address','landmark','locality','city','district','state','zipcode')
+        fields = ('firstname','lastname', 'image','address','landmark','locality','city','district','state','zipcode','phoneno')
