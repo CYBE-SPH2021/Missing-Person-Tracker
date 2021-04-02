@@ -23,6 +23,17 @@ class acase(models.Model):
     zipcode = models.CharField(max_length=100)
     phoneno = models.CharField(max_length=100)
 
+class camera(models.Model):
+    ip_address = models.CharField(max_length=200)
+    landmark = models.CharField(max_length=100)
+    locality = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    district = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    zipcode = models.CharField(max_length=100)
     
 
+
+
     
+

@@ -18,6 +18,10 @@ def dashboard(request):
 
 def realrec(request):
     names=Recognizer()
+    """ cases = acase.objects
+    for case in cases:
+        if (acase.phoneno + acase.firstname + acase.lastname) in names:
+             """
     return render(request,'dashboard/webcamon.html')
 
 def addcase(request):
