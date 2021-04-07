@@ -18,6 +18,7 @@ def dashboard(request):
 
 def realrec(request):
     names=Recognizer()
+    print(names)
     """ cases = acase.objects
     for case in cases:
         if (acase.phoneno + acase.firstname + acase.lastname) in names:
