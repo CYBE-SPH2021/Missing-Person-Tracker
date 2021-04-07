@@ -37,3 +37,6 @@ def addcase(request):
         form = AddCaseForm()
     return render(request, 'dashboard/addcase.html', {'form': form})
 
+def detectedmissing(request):
+    return render(request,'dashboard/detectedmissing.html')
+

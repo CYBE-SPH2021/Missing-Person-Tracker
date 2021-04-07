@@ -108,21 +108,24 @@ def Recognizer():
 				case_path = os.path.join(base_dir,"{}/{}/{}/{}_{}.jpg".format('media','images','detected_missing',name , x1))
 				cpath = 'images/detected_missing/{}__{}.jpg'.format(name, x1)
 				cv2.imwrite(case_path, frame)
-			
+				label1 = str(x1)
 				#Add data to the database if does not exist earlier
 				phnno, fname, lname = name.split('_')
-				recognizedcase = detected_missing(caseidentifier = phnno + '_' + fname + '_' + lname, image = cpath,landmark = 'MGM Hospital',locality = 'CBD Belapur'
-                                   ,city = 'Navi Mumbai', district = 'Thane', state = 'Maharashtra' , zipcode = '400614', firstname = fname, lastname = lname, phoneno = phnno)
+				recognizedcase, created = detected_missing.objects.get_or_create(caseidentifier = phnno + '_' + fname + '_' + lname, image = cpath,landmark = 'MGM Hospital',locality = 'CBD Belapur'
+                                   ,city = 'Navi Mumbai', district = 'Thane', state = 'Maharashtra' , zipcode = '400614', firstname = fname, lastname = lname, phoneno = phnno, time_detected = label1)
 				case_detection = detected_missing.objects.all()
 				print(case_detection.count())
 				if (case_detection.count() == 0):
 					recognizedcase.save()
 				else:
 					for rcase in case_detection.iterator():
-						if((rcase.firstname == fname) and (rcase.lastname == lname) and (rcase.phoneno == phnno) and (rcase.landmark == "MGM Hospital") and (rcase.locality == "CBD Belapur") and (rcase.city == "Navi Mumbai") and (rcase.district == "Thane")):
-							print("already present in the database")
+						if created:
+							print("")
 						else:
 							recognizedcase.save()
+						
+							
+							
 
 				
 

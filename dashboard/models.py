@@ -59,11 +59,12 @@ class detected_missing(models.Model):
     firstname = models.CharField(max_length = 200)
     lastname = models.CharField(max_length = 200)
     phoneno = models.CharField(max_length = 200)
-    image = models.ImageField(upload_to=missed_directory_path)
+    image = models.ImageField(upload_to=missed_directory_path,unique = True)
     landmark = models.CharField(max_length=100)
     locality = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     district = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     zipcode = models.CharField(max_length=100)
+    time_detected = models.CharField(max_length = 100)
   
