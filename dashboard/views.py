@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import acase
+from .models import acase, detected_missing
 from .recognizer import Recognizer
 from .forms import AddCaseForm
 
@@ -38,5 +38,9 @@ def addcase(request):
     return render(request, 'dashboard/addcase.html', {'form': form})
 
 def detectedmissing(request):
-    return render(request,'dashboard/detectedmissing.html')
+    detectedmCase = detected_missing.objects
+    return render(request,'dashboard/detectedmissing.html',{'dmp':detectedmCase})
+
+def information(request):
+    return render(request,'dashboard/case/information.html')
 

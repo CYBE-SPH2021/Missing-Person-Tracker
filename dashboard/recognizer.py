@@ -106,7 +106,7 @@ def Recognizer():
 				print(name, x)
 				x1,x2 = x.split(':__')
 				case_path = os.path.join(base_dir,"{}/{}/{}/{}_{}.jpg".format('media','images','detected_missing',name , x1))
-				cpath = 'images/detected_missing/{}__{}.jpg'.format(name, x1)
+				cpath = 'images/detected_missing/{}_{}.jpg'.format(name, x1)
 				cv2.imwrite(case_path, frame)
 				label1 = str(x1)
 				#Add data to the database if does not exist earlier

@@ -8,4 +8,5 @@ urlpatterns = [
     path('webcamon/',views.realrec, name='realrec'),
     path('addcase/',views.addcase,name='addcase'),
     path('detectedmissing/',views.detectedmissing,name='detectedmissing'),
+    path('case/info/',views.information,name='information')
 ]

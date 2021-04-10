@@ -1,4 +1,5 @@
 from django.db import models
+from dashboard .models import acase, detected_missing
 
 # Create your models here.
 

@@ -1,6 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from .forms import SuspectForm
+import cv2
+from django.utils import timezone
+import datetime
+from .staticrecognizer import static_rec
+from .models import acase,detected_missing,Suspect
+import os
 
 
 # Create your views here.
@@ -84,7 +90,49 @@ def suspect(request):
             form.save()
             # Get the current instance object to display in the template
             img_obj = form.instance
+            print(img_obj)
+            landmark = form.instance.landmark
+            locality = form.instance.locality
+            city = form.instance.city
+            district = form.instance.district
+            state = form.instance.state
+            zipcode = form.instance.zipcode
+            img = str(img_obj)
+            string,nowithbrac = img.split("(")
+            no1, no2 = nowithbrac.split(")")
+            no3 = int(no1)
+            pth = Suspect.objects.get(ids = no3)
+            image_pth = pth.image
+            image_pth1 = "'" + str(image_pth) +"'"
+            print(image_pth1) 
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            base_dir = os.getcwd()
+            img_pth2 = os.path.join(base_dir,"{}/{}".format('media',image_pth))
+
+            name = static_rec(img_pth2)
+            phnno, fname, lname = name.split('_')
+            timestamp = datetime.datetime.now(timezone.utc)
+            x = timestamp.strftime("%Y-%m-%d %H:%M:__%S")
+            x1,x2 = x.split(':__')
+            
+            case_path = os.path.join(base_dir,"{}/{}/{}/{}_{}.jpg".format('media','images','detected_missing',name , x1))
+            cpath = 'images/detected_missing/{}_{}.jpg'.format(name, x1)
+            img_detected = cv2.imread(img_pth2)
+            cv2.imwrite(case_path, img_detected)
+            label1 = str(x1)
+            #Add data to the database if does not exist earlier
+            phnno, fname, lname = name.split('_')
+            recognizedcase, created = detected_missing.objects.get_or_create(caseidentifier = phnno + '_' + fname + '_' + lname, image = cpath,landmark = landmark,locality = locality
+                                   ,city = city, district = district, state = state , zipcode = zipcode, firstname = fname, lastname = lname, phoneno = phnno, time_detected = label1)
+            print(landmark," ",locality," ",city," ",district," ",state," ",zipcode)
+            recognizedcase.save()
             return render(request, 'suspect.html', {'form': form, 'img_obj': img_obj})
+ 
+            
+            
+                       
+            
+            
     else:
         form = SuspectForm()
     return render(request, 'suspect.html', {'form': form})
