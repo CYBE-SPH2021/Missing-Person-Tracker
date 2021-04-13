@@ -58,10 +58,10 @@ def index(request):
 def plogin(request):
     if request.method == 'POST':
         user = auth.authenticate(
-            username=request.POST['username'], password=request.POST['password'],is_staff=True)
+            username=request.POST['username'], password=request.POST['password'],is_staff=True, is_superuser=True)
 
         if user is not None:
-            if user.is_staff==True:
+            if user.is_staff==True and user.is_superuser==True:
                 auth.login(request, user)
                 return redirect('/dashboard')
             else:
@@ -82,6 +82,23 @@ def clogin(request):
             return render(request, 'login/clogin.html', {'error': 'username or password is incorrect.'})
     else:
         return render(request, 'login/clogin.html')
+
+def cologin(request):
+    if request.method == 'POST':
+        user = auth.authenticate(
+            username=request.POST['username'], password=request.POST['password'],is_staff=True)
+
+        if user is not None:
+            if user.is_staff==True:
+                auth.login(request, user)
+                return redirect('/dashboard')
+            else:
+                return render(request, 'login/cologin.html', {'error': 'username or password is incorrect.'})
+        else:
+            return render(request, 'login/cologin.html', {'error': 'username or password is incorrect.'})
+    else:
+        return render(request, 'login/cologin.html')
+
 
 def suspect(request):
     if request.method == 'POST':
