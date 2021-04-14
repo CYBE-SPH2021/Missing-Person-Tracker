@@ -67,4 +67,8 @@ class detected_missing(models.Model):
     state = models.CharField(max_length=100)
     zipcode = models.CharField(max_length=100)
     time_detected = models.CharField(max_length = 100)
-  
+
+class track_vehicle(models.Model):
+
+    case = models.AutoField(primary_key = True)
+    vehicle_no = models.CharField(max_length = 300)
