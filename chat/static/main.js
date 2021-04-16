@@ -32,7 +32,7 @@ $("#status-options ul li").click(function() {
 	$("#status-options").removeClass("active");
 });
 
-{/* function newMessage() {
+{function newMessage() {
 	message = $(".message-input input").val();
 	if($.trim(message) == '') {
 		return false;
@@ -53,4 +53,4 @@ $(window).on('keydown', function(e) {
     return false;
   }
 });
-</script> */}
+</script>}

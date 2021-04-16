@@ -5,6 +5,10 @@ from .recognizer import Recognizer
 from vehicle.license_plate_detector import main
 from vehicle.plate_recognition import main1
 from .forms import AddCaseForm, VehicleForm
+from django.contrib.auth import get_user_model
+from django.contrib.auth.hashers import make_password
+
+User = get_user_model()
 
 
 # Create your views here.
@@ -35,6 +39,15 @@ def addcase(request):
             form.save()
             # Get the current instance object to display in the template
             img_obj = form.instance
+            fname = form.instance.firstname
+            lname = form.instance.lastname
+            phnno = form.instance.phoneno
+            p = fname + phnno
+            password = str(p)
+            user = User.objects.create(username = phnno)
+            user.password = make_password(password)
+            user.save()
+
             return render(request, 'dashboard/addcase.html', {'form': form, 'img_obj': img_obj})
     else:
         form = AddCaseForm()

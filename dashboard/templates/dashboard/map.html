@@ -1,1 +1,59 @@
-criston
+<h1>Hello
+</h1>
+
+
+{% load static %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'map.css' %}">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=initialize"></script>
+        
+</head>
+<body>
+    <div id="map-canvas"></div>
+    <script>
+        // This example displays a marker at the center of Australia.
+        // When the user clicks the marker, an info window opens.
+
+        function initialize() {
+            var myLatlng = new google.maps.LatLng(19.025779, 73.041446);
+            var mapOptions = {
+                zoom: 20,
+                center: myLatlng
+            };
+
+            var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+            var contentString = '<div id="content">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<h1 id="firstHeading" class="firstHeading">Video in Info Window</h1>' +
+                '<div id="bodyContent">' +
+                '<video width="320" height="240" controls>' +
+                '<source src="movie.mp4" type="video/mp4" />' +
+                '<source src="movie.ogg" type="video/ogg" />' + 
+                '</video>' +
+                '</div>' +
+                '</div>';
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: 'Uluru (Ayers Rock)'
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map, marker);
+            });
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+    
+</body>
+</html>

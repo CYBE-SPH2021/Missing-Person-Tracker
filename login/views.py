@@ -86,14 +86,11 @@ def clogin(request):
 def cologin(request):
     if request.method == 'POST':
         user = auth.authenticate(
-            username=request.POST['username'], password=request.POST['password'],is_staff=True)
+            username=request.POST['username'], password=request.POST['password'])
 
         if user is not None:
-            if user.is_staff==True:
-                auth.login(request, user)
-                return redirect('/dashboard')
-            else:
-                return render(request, 'login/cologin.html', {'error': 'username or password is incorrect.'})
+            auth.login(request, user)
+            return redirect('/chat')
         else:
             return render(request, 'login/cologin.html', {'error': 'username or password is incorrect.'})
     else:
