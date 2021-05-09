@@ -1,7 +1,3 @@
-<h1>Hello
-</h1>
-
-
 {% load static %}
 
 <html>
@@ -9,6 +5,8 @@
         <link rel="stylesheet" href="{% static 'map.css' %}">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=initialize"></script>
+    
+
         
 </head>
 <body>
@@ -16,39 +14,81 @@
     <script>
         // This example displays a marker at the center of Australia.
         // When the user clicks the marker, an info window opens.
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+    
+        var id = getParameterByName('id');
+
+        document.write(id)
 
         function initialize() {
-            var myLatlng = new google.maps.LatLng(19.01898695  , 73.03909472408442);
+            var myLatlng1 = new google.maps.LatLng(19.025779   , 73.041446);
+            var myLatlng2 = new google.maps.LatLng(19.075513 , 72.991704);
             var mapOptions = {
-                zoom: 20,
-                center: myLatlng
+                zoom: 16,
+                center: myLatlng1
             };
 
             var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-            var contentString = '<div id="content">' +
+
+            var contentString1 = '<div id="content">' +
                 '<div id="siteNotice">' +
                 '</div>' +
-                '<h1 id="firstHeading" class="firstHeading">Video in Info Window</h1>' +
+              
+                '<h1 id="firstHeading" class="firstHeading">Timestamp:2021-05-04 12:33 </h1>' +
                 '<div id="bodyContent">' +
-                '<video width="320" height="240" controls>' +
-                '<source src="movie.mp4" type="video/mp4" />' +
-                '<source src="movie.ogg" type="video/ogg" />' + 
-                '</video>' +
+                
+                '<img width="320" height="300" src="{% static '/img/09320409341_Yashika_Kuckian_2021-05-04 12:23.jpg' %}">' +
+                                
                 '</div>' +
                 '</div>';
 
-            var infowindow = new google.maps.InfoWindow({
-                content: contentString
+                var contentString2 = '<div id="content">' +
+                    '<div id="siteNotice">' +
+                    '</div>' +
+                  
+                    '<h1 id="firstHeading" class="firstHeading">Timestamp:2021-05-04 12:36 </h1>' +
+                    '<div id="bodyContent">' +
+                    
+                    '<img width="320" height="300" src="{% static '/img/09320409341_Yashika_Kuckian_2021-05-04 12:36.jpg' %}">' +
+                                    
+                    '</div>' +
+                    '</div>';
+
+            var infowindow1 = new google.maps.InfoWindow({
+                content: contentString1
             });
 
-            var marker = new google.maps.Marker({
-                position: myLatlng,
-                map: map,
-                title: 'Uluru (Ayers Rock)'
+            var infowindow2 = new google.maps.InfoWindow({
+                content: contentString2
             });
-            google.maps.event.addListener(marker, 'click', function() {
-                infowindow.open(map, marker);
+
+            var marker1 = new google.maps.Marker({
+                position: myLatlng1,
+                map: map,
+                title: 'Tracked Locations'
+            });
+
+            var marker2 = new google.maps.Marker({
+                position: myLatlng2,
+                map: map,
+                title: 'Tracked Locations'
+            });
+
+            google.maps.event.addListener(marker1, 'click', function() {
+                infowindow1.open(map, marker1);
+            });
+
+            google.maps.event.addListener(marker2, 'click', function() {
+                infowindow2.open(map, marker2);
             });
         }
 
@@ -57,3 +97,7 @@
     
 </body>
 </html>
+
+
+<!-- '<source src="movie.mp4" type="video/mp4" />' +
+                '<source src="movie.ogg" type="video/ogg" />' +  -->

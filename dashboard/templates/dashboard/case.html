@@ -155,10 +155,10 @@
               <tbody>
                 {% for aC in ac.all %}
                 <tr>
-                  <td><p><a href ='map'>{{aC.phoneno}}</a></p></td>
+                  <td><p><a href ='map?id={{aC.phoneno}}'>{{aC.phoneno}}</a></p></td>
                   <td>{{ aC.firstname }}</td>
                   <td>{{ aC.lastname }}</td>
-                  <td><img height="40" width="40" src="{{ aC.image.url }}" alt="person"></td>
+                  <td><img height="140" width="140" src="{{ aC.image.url }}" alt="person"></td>
                   <td>{{ aC.landmark }}</td>
                   <td>{{ aC.locality }}</td>
                   <td>{{ aC.city }}</td>
@@ -173,8 +173,6 @@
         </main>
       </div>
     </div>
-
-
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>

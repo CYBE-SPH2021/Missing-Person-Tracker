@@ -18,7 +18,8 @@ def case(request):
     return render(request,'dashboard/case.html',{'ac':activeCase})
 
 def maps(request):
-    return render(request,'dashboard/map.html')
+    detectedmCase = detected_missing.objects
+    return render(request,'dashboard/map.html',{'ac':detectedmCase})
 
 def dashboard(request):
     return render(request,'dashboard/dashboard.html')
