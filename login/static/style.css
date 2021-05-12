@@ -7,10 +7,20 @@ body{
     font-family:sans-serif;
 }
 #nav-bar
-{ 
+{
     position: sticky;
     top: 0;
     z-index: 10;
+}
+.suspect-container{
+    margin-top: 10%; 
+    margin-bottom: 10%;
+    margin-left: 35%;
+}
+.suspect-form{
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+   
 }
 .addcase-container{
     margin-top: 10%; 

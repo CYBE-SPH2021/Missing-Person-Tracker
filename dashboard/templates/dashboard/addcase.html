@@ -1,20 +1,31 @@
-{% extends 'base5.html' %}
+{% extends 'base5.html' %} 
 {% block content %}
 <html lang="en">
 <head>
     {% load static %}
     <title>Missing People Tracker</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" >
+    <style> 
+        body{
+          height: 1250px;
+          background-color: #cccccc;
+          background: linear-gradient(70deg, rgb(104, 28, 5), pink);
+          background-image: url("/static/img/mix2.png"),url("/static/img/Question-Mark-PNG.png");
+          background-size: 20%;
+          background-repeat: repeat, repeat; 
+
+        }
+        </style>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
+<body >
     <div class="container addcase-container">
         <div class="row">
             
-            <div class="addcase-form">
+            <div class="addcase-form" style="background-color:rgb(255, 253, 253);background: linear-gradient(70deg, rgb(175, 81, 76), rgb(243, 206, 206));">
                 <h3>Upload Missing Person's Information</h3>
                 <p>Enter correct information about the missing person</p>
                 <form method="post" enctype="multipart/form-data">

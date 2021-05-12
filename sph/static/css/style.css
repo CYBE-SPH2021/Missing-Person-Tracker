@@ -12,6 +12,16 @@ body{
     top: 0;
     z-index: 10;
 }
+.addcase-container{
+    margin-top: 10%; 
+    margin-bottom: 10%;
+    margin-left: 35%;
+}
+.addcase-form{
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+   
+}
 .navbar
 {
     background-image: linear-gradient(to right, #f7a7ab,#700404);

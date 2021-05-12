@@ -1,7 +1,18 @@
+body {
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fxpandamind.tumblr.com%2Fpost%2F160955110926%2Fjgiffy-11-breakthrough-mixed-media-gif&psig=AOvVaw04MtZmL6a6S6Wj9lLB0qS1&ust=1620675978761000&source=images&cd=vfe&ved=2ahUKEwjE6qzRrr3wAhVDXCsKHR2XDckQr4kDegQIARAj");
+    background-repeat: repeat-y;
+  }
+
+
 .login-container{
-    margin-top: 10%;
+    margin-top: 10%; 
     margin-bottom: 10%;
     margin-left: 35%;
+}
+.home-container{
+    margin-top: 5%;
+    margin-bottom: 0%;
+    margin-left: 0%;
 }
 .suspect-container{
     margin-top: 10%;
@@ -11,7 +22,9 @@
 .login-form-1{
     padding: 5%;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+   
 }
+
 .suspect-form{
     padding: 5%;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
@@ -60,3 +73,15 @@
     font-weight: 600;
     text-decoration: none;
 }
+#html
+{
+    background-image: linear-gradient(to right, #f7a7ab,#700404);
+    color: #fff;
+    padding-top: 5%;
+}
+body {
+    border-style: solid;
+    border-color: red;
+  }
+
+
